@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+{% load bootstrap5 %}
+{% load fontawesome_5 %}
+{% load static %}
+{% block content %}
+
+
+<div class="jumbotron bg-white shadow-sm offset-2 py-2 px-5">
+  <h1 class="display-3">Djobbi Shop</h1>
+  <p class="lead">Jumbo helper text</p>
+  <hr class="my-2">
+  <p>More info</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+  </p>
+
+</div>
+
+<div class="row justify-content-center offset-2">
+  {% for product in products %}
+  <div class="col-lg-3 m-4 ">
+    <img class="thumbnail w-100 h-75 "  src="/static/images{{product.imageURL}}">
+    <div class="box-element product">
+      <h6><strong>{{product.name}}</strong></h6>
+      <hr>
+      
+
+      <button data-product= {{product.id}} data-action="add"  class="btn btn-outline-secondary add-btn update-cart" >Add to Cart</button>
+      <a class="btn btn-outline-success" href="#">View</a>
+      <h4 style="display: inline-block; float: none "><strong>{{product.price}}$</strong></h4>
+
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock content %}
